@@ -41,7 +41,7 @@ module ExceptionNotifier
 
         options[:body][:request] = request_items
         options[:body][:session] = request.session
-        options[:body][:environment] = request.filtered_env
+        # options[:body][:environment] = request.filtered_env
       end
       send_notice(exception, options, nil, @default_options) do |_, _|
         HTTParty.send(http_method, url, options)
