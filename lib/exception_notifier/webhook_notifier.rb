@@ -21,6 +21,7 @@ module ExceptionNotifier
       options[:body][:server] = Socket.gethostname
       options[:body][:process] = $PROCESS_ID
       options[:body][:rails_root] = Rails.root if defined?(Rails) && Rails.respond_to?(:root)
+      options[:body][:rails_env] = Rails.env if defined?(Rails) && Rails.respond_to?(:env)
       options[:body][:exception] = {
         error_class: exception.class.to_s,
         message: exception.message.inspect,
